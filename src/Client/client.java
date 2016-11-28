@@ -6,14 +6,14 @@ import java.rmi.server.UnicastRemoteObject;
 public class client extends UnicastRemoteObject implements ClientInterface
 {
 private String name;
-//private ChatUI ui;
+private ClientMain ui;
 public client(String n) throws RemoteException{
 	name=n;
 }
 @Override
 public void tell(String st) throws RemoteException {
 	System.out.println(st);
-	//ui.TypeMessage(st);
+	ui.writeMsg(st);
 	
 }
 @Override
@@ -22,11 +22,11 @@ public String getName() throws RemoteException {
 	
 }
 
-/* 
- * 	public void setGUI(ChatUI t){
- * ui=t;
- * }
- */
+ 
+ 	public void setGUI(ClientMain t){
+ ui=t;
+}
+
 	
 	
 }

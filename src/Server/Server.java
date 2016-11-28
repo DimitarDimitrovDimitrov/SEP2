@@ -6,19 +6,21 @@ import java.util.ArrayList;
 
 
 
+
+
+
 import Client.ClientInterface;
-import Client.client;
 
 public class Server extends UnicastRemoteObject implements ServerInterface
 {
-   private ArrayList list;
+   private ArrayList<Object> list;
 
    public Server() throws RemoteException
    {
       list = new ArrayList<>();
    }
 
-   public boolean login(client a) throws RemoteException
+   public boolean login(ClientInterface a) throws RemoteException
    {
       System.out.println(a.getName() + "connected ");
       a.tell("you have connected succesfully");
@@ -44,9 +46,13 @@ public class Server extends UnicastRemoteObject implements ServerInterface
          }
       }
    }
-   public ArrayList getConnected()throws RemoteException
+   public ArrayList<Object> getConnected()
    {
       return list;
    }
+
+  
+   
+   
 
 }
