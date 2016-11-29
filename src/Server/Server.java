@@ -32,7 +32,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface
    public void publish(String s) throws RemoteException
    {
       System.out.println(s);
-      for (int i = 0; i > list.size(); i++)
+      for (int i = 0; i < list.size(); i++)
       {
          try
          {

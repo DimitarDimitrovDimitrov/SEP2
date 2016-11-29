@@ -11,7 +11,7 @@ public class ServerMain
     try{
        Registry reg = LocateRegistry.createRegistry(1099);
        ServerInterface b =new Server();
-       Naming.rebind("rmi://10.52.237.192/myabc",b);
+       Naming.rebind("rmi://localhost/myabc",b);
        System.out.println("[System]chat Server is ready");
        
     }
