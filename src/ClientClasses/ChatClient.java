@@ -27,6 +27,14 @@ public class ChatClient
    {
   
       // Connect to the chat server
+      
+      
+      /**
+       * So this apparently makes the prints to the console 
+       * I am using BufferReader and Print writer in  the GUI 
+       * somehow we need to make the e.getsource==send which is when the button send is pressed
+       * use those to print a string.
+       */
       try
       {
          Socket socket = new Socket(SERVER_HOSTNAME, SERVER_PORT);
@@ -40,6 +48,16 @@ public class ChatClient
          ioe.printStackTrace();
          System.exit(-1);
       }
+      /**
+       * 
+       * i don't know what this does it uses the BufferWriter and SocketReader 
+       * maybe it sends the text 
+       * it could be those lines of code that send the message or those above in the try catch
+       * 
+       * Question is  do we need all that code if this does not send the message
+       * if we don't then we need to remove it.
+       * 
+       */
       // Start socket --> console transmitter thread
       PrintWriter consoleWriter = new PrintWriter(System.out);
       TextDataTransmitter socketToConsoleTransmitter = new TextDataTransmitter(mSocketReader, consoleWriter);
