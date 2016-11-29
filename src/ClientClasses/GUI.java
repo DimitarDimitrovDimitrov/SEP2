@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.PrintWriter;
 
 import javax.swing.JFrame;
 
@@ -19,14 +20,17 @@ public class GUI extends JFrame implements WindowListener,MouseListener,KeyListe
   private String Username=null;
   private Button send;
   private ChatClient c;
+  private PrintWriter mSocketWriter;
   GUI(String s)
   {
+     
      super(s);
      this.addWindowListener(this);
      this.setSize(800,600);
      this.setResizable(true);
      this.setLayout(new BorderLayout());
      this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
      
     MessageArea=new TextArea();
     MessageArea.setEditable(false);
@@ -56,6 +60,8 @@ public class GUI extends JFrame implements WindowListener,MouseListener,KeyListe
   public static void main(String [] args)
   {
      GUI c=new GUI("gui");
+     
+     
   }
   
   private class MyButtonListener implements ActionListener
