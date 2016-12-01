@@ -20,16 +20,18 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class ChatView extends JFrame implements ActionListener {
-
+private JButton setName;
    private JTextField userNameField;
 	private JTextField textFieldInput;
 	private JTextArea textAreaOutput;
+	
 	private JButton buttonSend;
 	private JButton buttonQuit;
+	
 	 ObjectOutputStream outToServer;
 	 ObjectInputStream inFromServer;
 	 Socket clientSocket;
-
+Client c;
 	public ChatView()
 	{
 	   
@@ -48,6 +50,8 @@ public class ChatView extends JFrame implements ActionListener {
 
 	public void start()
 	{
+	   
+	   setName.addActionListener(this);
 		buttonSend.addActionListener(this);
 		buttonQuit.addActionListener(this);
 		textFieldInput.addActionListener(this);
@@ -84,12 +88,15 @@ public class ChatView extends JFrame implements ActionListener {
 
 	private void initialize()
 	{
-	   userNameField=new JTextField(20);
+	   userNameField=new JTextField(10);
 	   //userNameField.setEditable(true);
 		textFieldInput = new JTextField();
 		textAreaOutput = new JTextArea();
 		textAreaOutput.setEditable(false);
 		textAreaOutput.setBackground(Color.WHITE);
+		// adding setname button
+		setName=new JButton("Set");
+		
 		buttonSend = new JButton("Send");
 		buttonQuit = new JButton("Quit");
 		setSize(350, 150); // set frame size
@@ -107,6 +114,7 @@ public class ChatView extends JFrame implements ActionListener {
 	   top.add(new JLabel("Your name: "));
 	 
 	   top.add(userNameField);
+	   top.add(setName);
 	   
 		JPanel panelButtons = new JPanel();
 		panelButtons.add(buttonSend);
@@ -129,7 +137,8 @@ public class ChatView extends JFrame implements ActionListener {
 
 	public void UpdateMessages(String message)
 	{
-	   textAreaOutput.append("\n"+message);
+	   
+	   textAreaOutput.append("\n"+c.getName()+""+message);
 	   
 	}
 	@Override
@@ -164,6 +173,11 @@ public class ChatView extends JFrame implements ActionListener {
 		{
 			System.exit(0);
 			System.out.println("code");
+		}
+		else if(e.getActionCommand().equals("Set"))
+		{
+		   
+		   c.setName(userNameField.getText());
 		}
 	}
 }
