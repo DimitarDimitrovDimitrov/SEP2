@@ -61,7 +61,7 @@ Client c;
 		setVisible(true);
 		try{
 		 final int PORT = 6789;
-       final String HOST = "10.52.233.208";
+       final String HOST = "localhost";
 		 clientSocket = new Socket(HOST, PORT);
 		// create input stream attached to the socket.
 		 inFromServer = new ObjectInputStream(clientSocket.getInputStream());
@@ -140,7 +140,7 @@ Client c;
 	public void UpdateMessages(String message)
 	{
 	   
-	   textAreaOutput.append("\n"+ c.getName()+ "  "+message);
+	   textAreaOutput.append("\n"+  ""+message);
 	   
 	}
 	@Override
@@ -158,10 +158,11 @@ Client c;
 	      // create client socket, connect to server.
 	      
 	    textFieldInput.getText();
-	    String s = textFieldInput.getText();
+	    String s = userNameField.getText()+""+textFieldInput.getText();
 	    Message m=new Message(s);
-	    outToServer.writeObject(c.getName());
+	   
 	    outToServer.writeObject(m);
+	    
 	    
 	    textFieldInput.setText("");
 	    
