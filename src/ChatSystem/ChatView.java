@@ -108,7 +108,7 @@ public class ChatView extends JFrame implements ActionListener {
 
 	public void UpdateMessages(String message)
 	{
-	   textAreaOutput.append(message);
+	   textAreaOutput.append("\n"+message);
 	   
 	}
 	@Override
@@ -129,7 +129,7 @@ public class ChatView extends JFrame implements ActionListener {
 	    String s = textFieldInput.getText();
 	    Message m=new Message(s);
 	    outToServer.writeObject(m);
-	    textAreaOutput.append("\n");
+	    
 	    textFieldInput.setText("");
 	    
 	      }
