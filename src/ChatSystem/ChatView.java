@@ -140,7 +140,7 @@ Client c;
 	public void UpdateMessages(String message)
 	{
 	   
-	   textAreaOutput.append("\n"+""+message);
+	   textAreaOutput.append("\n"+ c.getName()+ "  "+message);
 	   
 	}
 	@Override
