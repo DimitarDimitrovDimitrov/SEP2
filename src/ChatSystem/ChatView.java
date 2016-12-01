@@ -32,6 +32,7 @@ private JButton setName;
 	 ObjectInputStream inFromServer;
 	 Socket clientSocket;
 Client c;
+
 	public ChatView()
 	{
 	   
@@ -40,7 +41,7 @@ Client c;
 		initialize();
 		addComponentsToFrame();
 		
-		
+		c=new Client();
 		ObjectOutputStream outToClient;
 	   ObjectInputStream inFromClient;
 	}
@@ -174,10 +175,10 @@ Client c;
 			System.exit(0);
 			System.out.println("code");
 		}
-		else if(e.getActionCommand().equals("Set"))
+		 if(e.getActionCommand().equals("Set"))
 		{
-		   
-		   c.setName(userNameField.getText());
+		   String name=userNameField.getText();
+		   c.setName(name);
 		}
 	}
 }
