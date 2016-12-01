@@ -129,6 +129,9 @@ public class ChatView extends JFrame implements ActionListener {
 	    String s = textFieldInput.getText();
 	    Message m=new Message(s);
 	    outToServer.writeObject(m);
+	    textAreaOutput.append("\n");
+	    textFieldInput.setText("");
+	    
 	      }
 	      catch(Exception ex)
 	      {
@@ -136,9 +139,12 @@ public class ChatView extends JFrame implements ActionListener {
 	      }
 	      
 		}
-		else
+		else if(e.getActionCommand().equals("Quit"))
 		{
-			
+			System.exit(0);
+			System.out.println("code");
 		}
 	}
 }
+
+// comment
