@@ -33,6 +33,7 @@ private JButton setName;
 	 Socket clientSocket;
 Client c;
 
+
 	public ChatView()
 	{
 	   
@@ -139,7 +140,7 @@ Client c;
 	public void UpdateMessages(String message)
 	{
 	   
-	   textAreaOutput.append("\n"+c.getName()+""+message);
+	   textAreaOutput.append("\n"+""+message);
 	   
 	}
 	@Override
@@ -159,6 +160,7 @@ Client c;
 	    textFieldInput.getText();
 	    String s = textFieldInput.getText();
 	    Message m=new Message(s);
+	    outToServer.writeObject(c.getName());
 	    outToServer.writeObject(m);
 	    
 	    textFieldInput.setText("");
