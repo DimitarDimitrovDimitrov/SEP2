@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.Observable;
 import java.util.Scanner;
 
@@ -19,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import java.util.GregorianCalendar;
 public class ChatView extends JFrame implements ActionListener {
 private JButton setName;
    private JTextField userNameField;
@@ -32,7 +34,7 @@ private JButton setName;
 	 ObjectInputStream inFromServer;
 	 Socket clientSocket;
 Client c;
-
+String  timeStamp=new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
 
 	public ChatView()
 	{
@@ -158,7 +160,7 @@ Client c;
 	      // create client socket, connect to server.
 	      
 	    textFieldInput.getText();
-	    String s = userNameField.getText()+""+textFieldInput.getText();
+	    String s =  "["+timeStamp+"] "+ userNameField.getText()+": "+textFieldInput.getText();
 	    Message m=new Message(s);
 	   
 	    outToServer.writeObject(m);
