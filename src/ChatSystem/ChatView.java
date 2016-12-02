@@ -2,9 +2,12 @@ package ChatSystem;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -127,6 +130,11 @@ Client c;
 		panelButtons.add(buttonQuit);
 
 		JPanel panel1 = new JPanel(new BorderLayout());		
+		
+		
+
+		
+		
 		panel1.add(textFieldInput, BorderLayout.CENTER);
 		panel1.add(panelButtons, BorderLayout.EAST);
 
@@ -137,7 +145,7 @@ Client c;
 		contentPane.add(top,BorderLayout.SOUTH);
 		contentPane.add(panel1, BorderLayout.NORTH);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
-
+  
 		setContentPane(contentPane);
 	}
 
@@ -151,11 +159,10 @@ Client c;
 	// ActionListener
 	
 	
-	
 	public void actionPerformed(ActionEvent e)
 	{
 	   
-		if (e.getActionCommand().equals("Send")||e.equals(KeyEvent.VK_ENTER))
+		if (e.getActionCommand().equals("Send"))
 		      
 		{
 		   
