@@ -34,7 +34,7 @@ private JButton setName;
 	 ObjectInputStream inFromServer;
 	 Socket clientSocket;
 Client c;
-String  timeStamp=new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
+
 
 	public ChatView()
 	{
@@ -63,7 +63,7 @@ String  timeStamp=new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
 		setVisible(true);
 		try{
 		 final int PORT = 6789;
-       final String HOST = "localhost";
+       final String HOST = "10.52.234.82";
 		 clientSocket = new Socket(HOST, PORT);
 		// create input stream attached to the socket.
 		 inFromServer = new ObjectInputStream(clientSocket.getInputStream());
@@ -158,9 +158,9 @@ String  timeStamp=new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
 	      try{
 	     
 	      // create client socket, connect to server.
-	      
+	         String  timeStamp=new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
 	    textFieldInput.getText();
-	    String s =  "["+timeStamp+"] "+ userNameField.getText()+": "+textFieldInput.getText();
+	    String s =  "["+ timeStamp+"] "+ userNameField.getText()+": "+textFieldInput.getText();
 	    Message m=new Message(s);
 	   
 	    outToServer.writeObject(m);
