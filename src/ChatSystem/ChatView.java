@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -19,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 import java.util.GregorianCalendar;
 public class ChatView extends JFrame implements ActionListener {
@@ -147,9 +149,13 @@ Client c;
 	}
 	@Override
 	// ActionListener
+	
+	
+	
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getActionCommand().equals("Send"))
+	   
+		if (e.getActionCommand().equals("Send")||e.equals(KeyEvent.VK_ENTER))
 		      
 		{
 		   
