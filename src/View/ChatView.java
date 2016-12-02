@@ -56,6 +56,18 @@ Client c;
 		c=new Client();
 		ObjectOutputStream outToClient;
 	   ObjectInputStream inFromClient;
+	   
+	   //send a message with the enter 
+	   textFieldInput.addActionListener(new ActionListener()
+      {
+         public void actionPerformed(ActionEvent event)
+         {
+           sendMessageEnter(event.getActionCommand());
+            
+         }
+      }
+);
+	   
 	}
 	
 	
@@ -72,7 +84,7 @@ Client c;
 		setVisible(true);
 		try{
 		 final int PORT = 6789;
-       final String HOST = "10.52.234.82";
+       final String HOST = "localhost";
 		 clientSocket = new Socket(HOST, PORT);
 		// create input stream attached to the socket.
 		 inFromServer = new ObjectInputStream(clientSocket.getInputStream());
@@ -117,7 +129,14 @@ Client c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		textAreaOutput.setBackground(Color.LIGHT_GRAY);
 		
+		
+		
+		
+		
 	}
+	
+	
+	
 
 	private void addComponentsToFrame()
 	{
@@ -159,6 +178,32 @@ Client c;
 	   textAreaOutput.append("\n"+  ""+message);
 	   
 	}
+	
+	private void sendMessageEnter( String message)
+   {
+
+      try{
+     
+      // create client socket, connect to server.
+         String  timeStamp=new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
+    textFieldInput.getText();
+    
+   message =  "["+ timeStamp+"] "+ userNameField.getText()+": "+textFieldInput.getText();
+    Message m=new Message(message);
+   
+    outToServer.writeObject(m);
+    
+    
+    textFieldInput.setText("");
+    
+    
+      }
+      catch(Exception ex)
+      {
+         
+      }
+   }
+	
 	@Override
 	// ActionListener
 	
