@@ -4,6 +4,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import Model.Message;
+
 public class ServerConnection implements Runnable
 {
    private Socket ClientSocket;

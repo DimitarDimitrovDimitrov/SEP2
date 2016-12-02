@@ -1,4 +1,4 @@
-package ChatSystem;
+package Model;
 
 import java.io.Serializable;
 

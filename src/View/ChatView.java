@@ -1,4 +1,4 @@
-package ChatSystem;
+package View;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -24,6 +24,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+
+import ChatSystem.Client;
+import ChatSystem.ClientReciever;
+import Model.Message;
 
 import java.util.GregorianCalendar;
 public class ChatView extends JFrame implements ActionListener {
@@ -180,6 +184,7 @@ Client c;
 	    
 	    
 	    textFieldInput.setText("");
+	    
 	    
 	      }
 	      catch(Exception ex)

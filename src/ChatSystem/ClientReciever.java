@@ -2,6 +2,9 @@ package ChatSystem;
 
 import java.io.ObjectInputStream;
 
+import Model.Message;
+import View.ChatView;
+
 public class ClientReciever implements Runnable
 {
    private ObjectInputStream inFromServer;
