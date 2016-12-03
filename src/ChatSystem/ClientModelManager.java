@@ -5,17 +5,17 @@ import java.util.Observable;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import chat.domain.model.Message;
-import chat.domain.model.MessageList;
 
+import Model.Messages;
+import Model.Message;
 
 public class ClientModelManager extends Observable implements Model
 {
-   private MessageList list;
+   private Messages list;
  
    public ClientModelManager()
    {
-      list = new MessageList();
+      list = new Messages();
    }
 
    @Override
