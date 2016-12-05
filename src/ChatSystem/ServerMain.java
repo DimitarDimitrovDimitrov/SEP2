@@ -17,7 +17,7 @@ public class ServerMain
 
       // create welcoming socket at port 6789
       ServerSocket welcomeSocket = new ServerSocket(PORT);
-      Socket ConnectionSocket = welcomeSocket.accept();
+      Socket ConnectionSocket ;
       
       MessageBroadcast mb=new MessageBroadcast();
       while (isConnected)
@@ -27,7 +27,7 @@ public class ServerMain
 
          // Wait, on welcoming socket for contact by client
           ConnectionSocket = welcomeSocket.accept();
-         
+         System.out.println("client connected");
          ServerConnection c = new ServerConnection(ConnectionSocket,mb);
          new Thread(c,"Communication").start();
         

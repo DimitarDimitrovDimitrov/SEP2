@@ -3,6 +3,7 @@ package ChatSystem;
 import java.util.Observable;
 
 
+
 import Model.Messages;
 import Model.Message;
 
@@ -16,7 +17,7 @@ public class ClientModelManager extends Observable implements Model
    }
 
    @Override
-   public void addMessage(Message message)
+   public void add(Message message)
    {
       list.add(message);
       notifyAboutMessage(message);
@@ -28,6 +29,15 @@ public class ClientModelManager extends Observable implements Model
       super.setChanged();
       super.notifyObservers(message);
    }
+
+   @Override
+   public void update(Observable o, Object arg)
+   {
+      // TODO Auto-generated method stub
+      
+   }
+
+
 
  
 }

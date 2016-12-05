@@ -32,6 +32,7 @@ import Controller.Controller;
 import Model.Message;
 
 import java.util.GregorianCalendar;
+
 public class ChatView extends JFrame implements ActionListener,View {
 private JButton setName;
    private JTextField userNameField;
@@ -78,14 +79,14 @@ ClientController controller;
 	
 	
 
-	public void start()
+	public void start (ClientController controller)
 	{
 	   
-	   setName.addActionListener(this);
-		buttonSend.addActionListener(this);
-		buttonQuit.addActionListener(this);
-		textFieldInput.addActionListener(this);
-		userNameField.addActionListener(this);
+	   
+		
+		this.controller=controller;
+
+		
 		setVisible(true);
 		
 	}
@@ -104,6 +105,10 @@ ClientController controller;
 		
 		buttonSend = new JButton("Send");
 		buttonQuit = new JButton("Quit");
+		
+		buttonQuit.addActionListener(this);
+
+		
 		setSize(350, 150); // set frame size
 		setLocationRelativeTo(null); // center of the screen
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -176,14 +181,13 @@ ClientController controller;
 	
 	
 	
-	@Override
 	// ActionListener
 	
 	
 	public void actionPerformed(ActionEvent e)
 	{
 	   
-	  controller.actionPerformed(e);	
+  controller.actionPerformed(e);	
 	}
 
 
@@ -192,29 +196,24 @@ ClientController controller;
    @Override
    public void update(Observable o, Object arg)
    {
-      // TODO Auto-generated method stub
+      notify();
       
    }
 
 
 
 
-   @Override
-   public void start(Controller controller)
-   {
-      // TODO Auto-generated method stub
-      
-   }
+   
 
 
 
 
-   @Override
-   public void displayMessage(String message)
-   {
-      // TODO Auto-generated method stub
-      
-   }
+   
+
+
+
+
+   
 	
 }
 // comment

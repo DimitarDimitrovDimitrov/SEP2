@@ -1,9 +1,12 @@
 package ChatSystem;
 
+
+import java.util.Observer;
+
 import Model.Message;
 
-public interface Model
+public interface Model extends Observer // we made it implement  observable 
 {
-   public void addMessage(Message message);
+   public void add(Message message);
    public void notifyAboutMessage(Message message);
 }

@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 
 
 import Controller.ClientController;
-import Model.Message;
+
 import Model.Messages;
 import View.ChatView;
 import View.View;
@@ -20,7 +20,7 @@ public class ClientMain
    {
       View view = new ChatView();
       Model m=new Messages();
-      ClientController c=new ClientController(m, view);
+         ClientController c=new ClientController(m, view);
 
       view.start(c); 
       

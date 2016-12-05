@@ -7,11 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
-import java.util.Observable;
 
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 import ChatSystem.ClientReciever;
 import ChatSystem.Model;
@@ -27,24 +23,27 @@ public class ClientController implements Controller
    ObjectOutputStream outToServer;
    ObjectInputStream inFromServer;
    Socket clientSocket;
-private ChatView c;
+
    public ClientController(Model model, View view)
    {
       this.model = model;
       this.view = view;
-      ((Observable) this.model).addObserver(view);
+
 
       try{
          
          final int PORT = 6789;
-         final String HOST = "10.52.233.232";
+         final String HOST = "localhost";
+         System.out.println("stuff");
          clientSocket = new Socket(HOST, PORT);
         // create input stream attached to the socket.
+         System.out.println("inputstream");
          inFromServer = new ObjectInputStream(clientSocket.getInputStream());
+         System.out.println("stuff1.5");
         // create output stream attached to the socket.
          outToServer = new ObjectOutputStream(clientSocket.getOutputStream());
-         
-        c.UpdateMessages("\n"+"Client> connected to server");
+         System.out.println("stuff2");
+        view.UpdateMessages("\n"+"Client> connected to server");
          ClientReciever r=new ClientReciever(inFromServer,this);
          new Thread(r,"Reciever").start();
  
@@ -69,12 +68,12 @@ private ChatView c;
          String timeStamp = new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
          
 
-         message = "[" + timeStamp + "] " + c.getUserNameField() + ": "+ c.getTextFieldInput();
+         message = "[" + timeStamp + "] " + view.getUserNameField() + ": "+ view.getTextFieldInput();
          Message m = new Message(message);
 
         outToServer.writeObject(m);
 
-         c.setTextFieldInput();
+         view.setTextFieldInput();
 
       }
       catch (Exception ex)
@@ -105,7 +104,7 @@ private ChatView c;
 
    public void UpdateMessages(String body)
    {
-      c.UpdateMessages(body);
+      view.UpdateMessages(body);
       
    }
    

@@ -7,6 +7,13 @@ import Controller.ClientController;
 
 public interface View extends Observer
 {
-   public void start(Controller controller);
-  public void displayMessage(String message);
+   public void start(ClientController controller);
+ 
+public void UpdateMessages(String string);
+
+public String getTextFieldInput();
+
+public String getUserNameField();
+
+public void setTextFieldInput();
 }
