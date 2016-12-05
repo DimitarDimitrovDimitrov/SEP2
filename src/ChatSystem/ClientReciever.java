@@ -2,6 +2,7 @@ package ChatSystem;
 
 import java.io.ObjectInputStream;
 
+import Controller.ClientController;
 import Model.Message;
 import View.ChatView;
 
@@ -10,12 +11,12 @@ public class ClientReciever implements Runnable
    private ObjectInputStream inFromServer;
    private ChatView view;
   
-   
-   public ClientReciever(ObjectInputStream inFromServer,ChatView _view)
+   private ClientController controller;
+   public ClientReciever(ObjectInputStream inFromServer,ClientController clientController)
    {
       System.out.println("Created Client Reciever");
       this.inFromServer=inFromServer;
-      view=_view;
+     this.controller=clientController;
    }
    public void run()
    {
@@ -25,7 +26,7 @@ public class ClientReciever implements Runnable
          {
          Message message=(Message) inFromServer.readObject();
          System.out.println("Reciever: "+message);
-         view.UpdateMessages(message.getBody());
+         controller.UpdateMessages(message.getBody());
          if(inFromServer==null)
          {
             System.out.println("inFromServer was null");

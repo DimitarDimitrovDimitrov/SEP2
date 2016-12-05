@@ -8,5 +8,5 @@ import Controller.ClientController;
 public interface View extends Observer
 {
    public void start(Controller controller);
-   public String getAndRemoveInput();
+  public void displayMessage(String message);
 }

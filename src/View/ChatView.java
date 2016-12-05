@@ -40,9 +40,7 @@ private JButton setName;
 	private JButton buttonSend;
 	private JButton buttonQuit;
 	
-	 ObjectOutputStream outToServer;
-	 ObjectInputStream inFromServer;
-	 Socket clientSocket;
+	
 Client c;
 
 
@@ -67,7 +65,8 @@ ClientController controller;
       {
          public void actionPerformed(ActionEvent event)
          {
-           sendMessageEnter(event.getActionCommand());
+            controller.sendMessageEnter(event.getActionCommand());
+          
             
          }
       }
@@ -87,32 +86,7 @@ ClientController controller;
 		textFieldInput.addActionListener(this);
 		userNameField.addActionListener(this);
 		setVisible(true);
-		try{
-		 final int PORT = 6789;
-       final String HOST = "10.52.233.232";
-		 clientSocket = new Socket(HOST, PORT);
-		// create input stream attached to the socket.
-		 inFromServer = new ObjectInputStream(clientSocket.getInputStream());
-		// create output stream attached to the socket.
-       outToServer = new ObjectOutputStream(clientSocket.getOutputStream());
-       String existing = textAreaOutput.getText();
-       textAreaOutput.setText(existing+"\n"+"Client> connected to server");
-       ClientReciever r=new ClientReciever(inFromServer,this);
-       new Thread(r,"Reciever").start();
-       
-       
-        
-        
-        
-        
-
-		}
-		catch (IOException ex)
-		{
-		   System.out.println("ERROR");
-		   ex.printStackTrace();
-		   
-		}
+		
 	}
 
 
@@ -140,7 +114,22 @@ ClientController controller;
 		
 	}
 	
-	
+	public JTextField TextFieldInput()
+   {
+      return textFieldInput;
+   }
+	public String getTextFieldInput()
+   {
+      return textFieldInput.getText();
+   }
+	public void setTextFieldInput()
+	{
+	   this.textFieldInput.setText("");;
+	}
+	public String getUserNameField()
+   {
+      return userNameField.getText();
+   }
 	
 
 	private void addComponentsToFrame()
@@ -184,10 +173,7 @@ ClientController controller;
 	   
 	}
 	
-	private void sendMessageEnter( String message)
-   {
-controller.sendMessageEnter(message);
-   }
+	
 	
 	@Override
 	// ActionListener
@@ -196,7 +182,8 @@ controller.sendMessageEnter(message);
 	public void actionPerformed(ActionEvent e)
 	{
 	   
-	controller.actionPerformed(e);	
+	  controller.actionPerformed(e);	
 	}
+	
 }
 // comment

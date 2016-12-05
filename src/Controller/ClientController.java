@@ -2,6 +2,7 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -12,37 +13,49 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import ChatSystem.ClientReciever;
 import ChatSystem.Model;
 import Controller.Controller;
 import Model.Message;
+import View.ChatView;
 import View.View;
 
 public class ClientController implements Controller
 {
    private Model model;
    private View view;
-   private JTextField userNameField;
-   private JTextField textFieldInput;
-   private JTextArea textAreaOutput;
-
    ObjectOutputStream outToServer;
    ObjectInputStream inFromServer;
    Socket clientSocket;
-
+private ChatView c;
    public ClientController(Model model, View view)
    {
       this.model = model;
       this.view = view;
       ((Observable) this.model).addObserver(view);
 
-      textFieldInput.addActionListener(new ActionListener()
-      {
-         public void actionPerformed(ActionEvent event)
-         {
-            sendMessageEnter(event.getActionCommand());
+      try{
+         
+         final int PORT = 6789;
+         final String HOST = "10.52.233.232";
+         clientSocket = new Socket(HOST, PORT);
+        // create input stream attached to the socket.
+         inFromServer = new ObjectInputStream(clientSocket.getInputStream());
+        // create output stream attached to the socket.
+         outToServer = new ObjectOutputStream(clientSocket.getOutputStream());
+         
+        c.UpdateMessages("\n"+"Client> connected to server");
+         ClientReciever r=new ClientReciever(inFromServer,this);
+         new Thread(r,"Reciever").start();
+ 
 
-         }
-      });
+        }
+        catch (IOException ex)
+        {
+           System.out.println("ERROR");
+           ex.printStackTrace();
+           
+        }
 
    }
 
@@ -53,16 +66,15 @@ public class ClientController implements Controller
       {
 
          // create client socket, connect to server.
-         String timeStamp = new SimpleDateFormat("HH.mm.ss")
-               .format(new java.util.Date());
-         textFieldInput.getText();
+         String timeStamp = new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
+         
 
-         message = "[" + timeStamp + "] " + userNameField.getText() + ": "+ textFieldInput.getText();
+         message = "[" + timeStamp + "] " + c.getUserNameField() + ": "+ c.getTextFieldInput();
          Message m = new Message(message);
 
-         outToServer.writeObject(m);
+        outToServer.writeObject(m);
 
-         textFieldInput.setText("");
+         c.setTextFieldInput();
 
       }
       catch (Exception ex)
@@ -71,34 +83,29 @@ public class ClientController implements Controller
       }
    }
 
-   public void execute(String message)
-   {
-      if (message.equals("Send"))
-      {
-
-         String input = view.getAndRemoveInput();
-         if (input.length() > 0)
-         {
-            model.addMessage(new Message(input));
-         }
-         else if (message.equals("Quit"))
-         {
-            System.exit(0);
-         }
-      }
-   }
-   
+  
 
    public void actionPerformed(ActionEvent e)
    {
-      
-      
-      
+
        if(e.getActionCommand().equals("Quit"))
       {
          System.exit(0);
          System.out.println("code");
       }
+      
+   }
+
+   @Override
+   public void execute(String message)
+   {
+      // TODO Auto-generated method stub
+      
+   }
+
+   public void UpdateMessages(String body)
+   {
+      c.UpdateMessages(body);
       
    }
    
