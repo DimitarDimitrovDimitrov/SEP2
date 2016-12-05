@@ -46,7 +46,7 @@ public class ClientController implements Controller
 
    }
 
-   private void sendMessageEnter(String message)
+   public void sendMessageEnter(String message)
    {
 
       try

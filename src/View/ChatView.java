@@ -27,6 +27,7 @@ import javax.swing.KeyStroke;
 
 import ChatSystem.Client;
 import ChatSystem.ClientReciever;
+import Controller.ClientController;
 import Model.Message;
 
 import java.util.GregorianCalendar;
@@ -43,6 +44,10 @@ private JButton setName;
 	 ObjectInputStream inFromServer;
 	 Socket clientSocket;
 Client c;
+
+
+
+ClientController controller;
 
 
 	public ChatView()
@@ -181,27 +186,7 @@ Client c;
 	
 	private void sendMessageEnter( String message)
    {
-
-      try{
-     
-      // create client socket, connect to server.
-         String  timeStamp=new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
-    textFieldInput.getText();
-    
-   message =  "["+ timeStamp+"] "+ userNameField.getText()+": "+textFieldInput.getText();
-    Message m=new Message(message);
-   
-    outToServer.writeObject(m);
-    
-    
-    textFieldInput.setText("");
-    
-    
-      }
-      catch(Exception ex)
-      {
-         
-      }
+controller.sendMessageEnter(message);
    }
 	
 	@Override
@@ -211,44 +196,7 @@ Client c;
 	public void actionPerformed(ActionEvent e)
 	{
 	   
-		if (e.getActionCommand().equals("Send"))
-		      
-		{
-		   
-	     
-
-	      try{
-	     
-	      // create client socket, connect to server.
-	         String  timeStamp=new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
-	    textFieldInput.getText();
-	    String s =  "["+ timeStamp+"] "+ userNameField.getText()+": "+textFieldInput.getText();
-	    Message m=new Message(s);
-	   
-	    outToServer.writeObject(m);
-	    
-	    
-	    textFieldInput.setText("");
-	    
-	    
-	      }
-	      catch(Exception ex)
-	      {
-	         
-	      }
-	      
-		}
-		else if(e.getActionCommand().equals("Quit"))
-		{
-			System.exit(0);
-			System.out.println("code");
-		}
-		 if(e.getActionCommand().equals("Set"))
-		{
-		   String name=userNameField.getText();
-		   c.setName(name);
-		}
+	controller.actionPerformed(e);	
 	}
 }
-
 // comment
