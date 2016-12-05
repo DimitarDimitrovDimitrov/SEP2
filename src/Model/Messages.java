@@ -4,7 +4,9 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Messages
+import ChatSystem.Model;
+
+public class Messages implements Model
 {
    private ArrayList<Message> messages;
 
@@ -57,6 +59,20 @@ public class Messages
       }
       all += "\n}";
       return all;
+   }
+
+   @Override
+   public void addMessage(Message message)
+   {
+      // TODO Auto-generated method stub
+      
+   }
+
+   @Override
+   public void notifyAboutMessage(Message message)
+   {
+      // TODO Auto-generated method stub
+      
    }
 
 }

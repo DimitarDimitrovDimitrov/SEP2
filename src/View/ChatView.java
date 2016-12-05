@@ -28,10 +28,11 @@ import javax.swing.KeyStroke;
 import ChatSystem.Client;
 import ChatSystem.ClientReciever;
 import Controller.ClientController;
+import Controller.Controller;
 import Model.Message;
 
 import java.util.GregorianCalendar;
-public class ChatView extends JFrame implements ActionListener {
+public class ChatView extends JFrame implements ActionListener,View {
 private JButton setName;
    private JTextField userNameField;
 	private JTextField textFieldInput;
@@ -184,6 +185,36 @@ ClientController controller;
 	   
 	  controller.actionPerformed(e);	
 	}
+
+
+
+
+   @Override
+   public void update(Observable o, Object arg)
+   {
+      // TODO Auto-generated method stub
+      
+   }
+
+
+
+
+   @Override
+   public void start(Controller controller)
+   {
+      // TODO Auto-generated method stub
+      
+   }
+
+
+
+
+   @Override
+   public void displayMessage(String message)
+   {
+      // TODO Auto-generated method stub
+      
+   }
 	
 }
 // comment
