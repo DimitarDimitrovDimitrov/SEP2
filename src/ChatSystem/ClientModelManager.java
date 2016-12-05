@@ -2,9 +2,6 @@ package ChatSystem;
 
 import java.util.Observable;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-
 
 import Model.Messages;
 import Model.Message;

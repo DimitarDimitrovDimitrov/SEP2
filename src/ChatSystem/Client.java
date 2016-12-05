@@ -1,6 +1,5 @@
 package ChatSystem;
 
-import java.rmi.RemoteException;
 
 public class Client
 {

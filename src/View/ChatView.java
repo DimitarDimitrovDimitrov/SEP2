@@ -84,7 +84,7 @@ Client c;
 		setVisible(true);
 		try{
 		 final int PORT = 6789;
-       final String HOST = "localhost";
+       final String HOST = "10.52.233.232";
 		 clientSocket = new Socket(HOST, PORT);
 		// create input stream attached to the socket.
 		 inFromServer = new ObjectInputStream(clientSocket.getInputStream());
