@@ -13,8 +13,8 @@ public class ServerMain
    {
       boolean isConnected = true;
       final int PORT = 6789;
-      String command;
-      Scanner keyboard=new Scanner(System.in);
+      
+      
      
       System.out.println("Starting Server...");
 
@@ -23,6 +23,8 @@ public class ServerMain
       Socket ConnectionSocket ;
       
       MessageBroadcast mb=new MessageBroadcast();
+      KeyboardThread keyboard =new KeyboardThread();
+    new Thread(keyboard).start();
       while (isConnected)
       {
          
@@ -42,12 +44,7 @@ public class ServerMain
             
             
             
-System.out.println("Write now");
-         
-            if( keyboard.nextLine().equals("Retrieve"))
-            {
-               System.out.println("Messages");
-            }
+
            
          // loop back and wait for another client connection.
       }
@@ -56,7 +53,10 @@ System.out.println("Write now");
       
       
       welcomeSocket.close();
-      System.out.println("Write");
+     
+      System.out.println("Write now");
+      
+     
       
       
       
