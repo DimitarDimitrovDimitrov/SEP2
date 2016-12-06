@@ -13,16 +13,14 @@ public class Database
    private Connection conn;
    private Statement stmt;
  private Messages List;
+ private MyDatabase db1;
    public Database() throws ClassNotFoundException
    {
       Class.forName("org.sqlite.JDBC");
    }
 
-   public void createConnection() throws SQLException
-   {
-      conn = DriverManager.getConnection(
-            "jdbc:postgresql://localhost:5432/postgres", "postgres", "pass");
-   }
+   MyDatabase db = new MyDatabase("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres", "postgres", "pass");
+
 
    public void createStatement() throws SQLException
    {
@@ -36,8 +34,9 @@ public class Database
       for(int i=0;i<List.size();i++)
       {
       String sql = "INSERT INTO `Sep2` (Message) values ('" +""+List.getMessage(i)+""+ "')";
-      stmt.executeUpdate(sql);
+      stmt.Update(sql);
       }
+     
    }
 
    public String readData() throws SQLException
