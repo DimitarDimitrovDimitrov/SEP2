@@ -1,5 +1,6 @@
 package Adapter;
 
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,7 +14,8 @@ public class Database
    private Connection conn;
    private Statement stmt;
  private Messages List;
- private MyDatabase db1;
+
+ 
    public Database() throws ClassNotFoundException
    {
       Class.forName("org.sqlite.JDBC");
@@ -22,19 +24,14 @@ public class Database
    MyDatabase db = new MyDatabase("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres", "postgres", "pass");
 
 
-   public void createStatement() throws SQLException
-   {
-      stmt = conn.createStatement();
-   }
+  
 
-   
-
-   public void writeData() throws SQLException
+   public void writeData() throws SQLException, FileNotFoundException
    {
       for(int i=0;i<List.size();i++)
       {
-      String sql = "INSERT INTO `Sep2` (Message) values ('" +""+List.getMessage(i)+""+ "')";
-      stmt.Update(sql);
+      String sql = "INSERT INTO `Sep2.Messages` (Messages) values ('" +""+List.getMessage(i)+""+ "')";
+      db.updateAll(sql);
       }
      
    }

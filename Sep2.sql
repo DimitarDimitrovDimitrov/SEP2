@@ -1,4 +1,4 @@
-Create SCHEMA sep2
+Create SCHEMA sep2;
 create table messages
 (
 
