@@ -3,6 +3,6 @@ package Adapter;
 public interface AdapterInterface {
 
 	
-	public String Write();
+	public void Write();
 	public String Read();
 }
