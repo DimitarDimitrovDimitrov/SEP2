@@ -62,7 +62,10 @@ public class Messages implements Model
       all += "\n}";
       return all;
    }
-
+public int size()
+{
+ return messages.size();   
+}
   
    @Override
    public void notifyAboutMessage(Message message)

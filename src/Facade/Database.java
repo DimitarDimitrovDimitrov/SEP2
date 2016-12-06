@@ -6,11 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Model.Messages;
+
 public class Database
 {
    private Connection conn;
    private Statement stmt;
-
+ private Messages List;
    public Database() throws ClassNotFoundException
    {
       Class.forName("org.sqlite.JDBC");
@@ -29,11 +31,13 @@ public class Database
 
    
 
-   public void writeData(int id, String data) throws SQLException
+   public void writeData() throws SQLException
    {
-      String sql = "INSERT INTO `Sep2` (ID, DATA) values ('" + id + "', '"
-            + data + "')";
+      for(int i=0;i<List.size();i++)
+      {
+      String sql = "INSERT INTO `Sep2` (Message) values ('" +""+List.getMessage(i)+""+ "')";
       stmt.executeUpdate(sql);
+      }
    }
 
    public String readData() throws SQLException
@@ -43,7 +47,7 @@ public class Database
       ResultSet rs = stmt.executeQuery(sql);
       while (rs.next())
       {
-         data = rs.getString("DATA");
+         data = rs.getString("Message");
       }
       return data;
    }
