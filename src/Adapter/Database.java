@@ -1,4 +1,4 @@
-package Facade;
+package Adapter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
