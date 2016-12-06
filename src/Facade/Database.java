@@ -43,7 +43,7 @@ public class Database
    public String readData() throws SQLException
    {
       String data = null;
-      String sql = "SELECT * FROM `Sep2` WHERE ID = 1";
+      String sql = "SELECT * FROM `Sep2`";
       ResultSet rs = stmt.executeQuery(sql);
       while (rs.next())
       {
