@@ -30,7 +30,7 @@ public class Database
    {
       for(int i=0;i<List.size();i++)
       {
-      String sql = "INSERT INTO `Sep2.Messages` (Messages) values ('" +""+List.getMessage(i)+""+ "')";
+      String sql = "INSERT INTO `Sep2.list` (Messages) values ('" +""+List.getMessage(i)+""+ "')";
       db.updateAll(sql);
       }
      

@@ -2,12 +2,13 @@ package ChatSystem;
 
 import java.util.Scanner;
 
+import Adapter.Adapter;
 import Adapter.Database;
 
 public class KeyboardThread implements Runnable
 {
    Scanner keyboard = new Scanner(System.in);
-     Database db;
+     Adapter db;
    @Override
    public void run()
    {
@@ -17,7 +18,7 @@ public class KeyboardThread implements Runnable
          {
             if (keyboard.nextLine().equals("Retrieve"))
             {
-               db.readData();
+               db.Read();
             }
          }
          catch (Exception ex)

@@ -9,10 +9,12 @@ import java.net.Socket;
 import java.text.SimpleDateFormat;
 
 
+
 import ChatSystem.ClientReciever;
 import ChatSystem.Model;
 import Controller.Controller;
 import Model.Message;
+import Model.Messages;
 import View.ChatView;
 import View.View;
 
@@ -23,6 +25,7 @@ public class ClientController implements Controller
    ObjectOutputStream outToServer;
    ObjectInputStream inFromServer;
    Socket clientSocket;
+   private Messages list;
 
    public ClientController(Model model, View view)
    {
@@ -75,6 +78,9 @@ public class ClientController implements Controller
 
          view.setTextFieldInput();
 
+         
+         
+         list.add(m);;
       }
       catch (Exception ex)
       {
