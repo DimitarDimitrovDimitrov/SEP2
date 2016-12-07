@@ -17,15 +17,16 @@ public class test
    public void test() throws ClassNotFoundException, FileNotFoundException, SQLException
    {
      // MyDatabase db = new MyDatabase("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres", "postgres", "pass");
-      String sql = "INSERT INTO \"Sep2\".list (message) values ('"+"message3"+ "')";
+     // String sql = "INSERT INTO \"Sep2\".list (message) values ('"+"message3"+ "')";
       //db.update(sql);
       AdapterInterface db2 = new Adapter("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres", "postgres", "pass");
       Messages list = new Messages();
       Message m =new Message("MessgeList");
       
       
-      list.add(m);
-      db2.Write(list);
+     // list.add(m);
+      //db2.Write(list);
+      db2.Read();
    }
 
 }

@@ -14,7 +14,7 @@ public class KeyboardThread implements Runnable
    AdapterInterface ai = new Adapter("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres","postgres","pass");
    
    
-     Messages list;
+     Messages list=new Messages();
    @Override
    public void run()
    {

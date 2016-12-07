@@ -1,6 +1,8 @@
 package Adapter;
 
 import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,11 +18,10 @@ public class Adapter implements AdapterInterface
    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
    private static final String USER = "postgres";
    private static final String PASSWORD = "pass";
- 
+
    String data = null;
- 
-   
-   public Adapter(String Driver,String Url,String User,String Password)
+
+   public Adapter(String Driver, String Url, String User, String Password)
    {
       try
       {
@@ -41,7 +42,7 @@ public class Adapter implements AdapterInterface
 
          for (int i = 0; i < list.size(); i++)
          {
-            String sql = "INSERT INTO \"Sep2\".list (message) values (\'"+  list.getMessage(i).toString()  + "\');";
+            String sql = "INSERT INTO \"Sep2\".list (message) values (\'" + list.getMessage(i).toString() + "\');";
             db.update(sql);
          }
       }
@@ -52,16 +53,32 @@ public class Adapter implements AdapterInterface
    }
 
    @Override
-   public String Read()
+   public void Read()
    {
-      String data = null;
-    /**  String sql = "SELECT * FROM \"Sep2\".list";
-      ResultSet rs = stmt.executeQuery(sql);
-      while (rs.next())
+      try
       {
-         data = rs.getString("Message");
+         Connection c = null;
+         String data = null;
+         Statement stmt = null;
+         c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "pass");
+            c.setAutoCommit(false);
+        String sql = "SELECT * FROM \"Sep2\".list;";
+        stmt = c.createStatement();
+         ResultSet rs = stmt.executeQuery(sql);
+         while (rs.next())
+         {
+            data=rs.getString(1);
+            System.out.println(data );
+         }
+         
+         
       }
-      **/
-      return data;
+      catch (SQLException e)
+      {
+         // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+     
+
    }
 }

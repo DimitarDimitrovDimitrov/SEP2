@@ -6,5 +6,5 @@ public interface AdapterInterface {
 
 	
 	public void Write(Messages list);
-	public String Read();
+	public void Read();
 }

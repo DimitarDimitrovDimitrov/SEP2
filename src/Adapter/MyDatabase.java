@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -157,4 +158,23 @@ public class MyDatabase
       input.close();
       return list;
    }
+   public String Read() throws SQLException
+   {
+      Connection c = null;
+      String data = null;
+      Statement stmt = null;
+      c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "pass");
+         c.setAutoCommit(false);
+     String sql = "SELECT * FROM \"Sep2\".list (message);";
+     stmt = c.createStatement();
+      ResultSet rs = stmt.executeQuery(sql);
+      while (rs.next())
+      {
+         data = rs.getString(sql);
+      }
+      
+      return data;
+   }
+   
+   
 }
