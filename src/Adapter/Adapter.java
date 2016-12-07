@@ -28,12 +28,12 @@ public class Adapter implements AdapterInterface
    {
       try
       {
-         String sql = "SELECT ID From Sep2.list;";
+         
         
 
          for(int i=0;i<List.size();i++)
          {
-         sql = "INSERT INTO `Sep2.Messages` (Messages) values ('" +""+List.getMessage(i)+""+ "')";
+        String  sql = "INSERT INTO `Sep2.Messages` (Messages) values ('" +""+List.getMessage(i)+""+ "')";
          try
          {
             db.updateAll(sql);
