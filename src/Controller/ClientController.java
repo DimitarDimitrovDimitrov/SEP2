@@ -26,6 +26,7 @@ public class ClientController implements Controller
    ObjectInputStream inFromServer;
    Socket clientSocket;
    private Messages list;
+   
 
    public ClientController(Model model, View view)
    {
@@ -80,7 +81,7 @@ public class ClientController implements Controller
 
          
          
-         list.add(m);;
+        
       }
       catch (Exception ex)
       {

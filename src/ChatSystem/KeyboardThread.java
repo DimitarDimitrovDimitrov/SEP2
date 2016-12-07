@@ -3,13 +3,17 @@ package ChatSystem;
 import java.util.Scanner;
 
 import Adapter.Adapter;
-import Adapter.Database;
+import Adapter.AdapterInterface;
+
 import Model.Messages;
 
 public class KeyboardThread implements Runnable
 {
    Scanner keyboard = new Scanner(System.in);
-     Adapter db;
+   
+   AdapterInterface ai = new Adapter("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres","postgres","pass");
+   
+   
      Messages list;
    @Override
    public void run()
@@ -20,7 +24,7 @@ public class KeyboardThread implements Runnable
          {
             if (keyboard.nextLine().equals("Retrieve"))
             {
-               db.Read();
+               ai.Read();
                System.out.println(list.getAll()+"messages");
             }
          }

@@ -4,7 +4,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import Adapter.Adapter;
+import Adapter.AdapterInterface;
 import Model.Message;
+import Model.Messages;
 
 public class ServerConnection implements Runnable
 {
@@ -37,7 +40,8 @@ public class ServerConnection implements Runnable
    {
       return outToClient;
    }
-
+Adapter db;
+Messages list;
    @Override
    public void run()
    {
@@ -62,7 +66,8 @@ public class ServerConnection implements Runnable
         
           
        }
-      
+       list.add(message);
+       db.Write();
     
       }
          catch(Exception ex)
