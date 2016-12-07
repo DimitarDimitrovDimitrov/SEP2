@@ -34,14 +34,14 @@ public class Adapter implements AdapterInterface
    }
 
    @Override
-   public void Write(Messages List)
+   public void Write(Messages list)
    {
       try
       {
 
-         for (int i = 0; i < List.size(); i++)
+         for (int i = 0; i < list.size(); i++)
          {
-            String sql = "INSERT INTO \"Sep2\".list (message) values (\'"+  List.getMessage(i).getBody()  + "\');";
+            String sql = "INSERT INTO \"Sep2\".list (message) values (\'"+  list.getMessage(i).toString()  + "\');";
             db.update(sql);
          }
       }

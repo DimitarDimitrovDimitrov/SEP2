@@ -5,6 +5,6 @@ import Model.Messages;
 public interface AdapterInterface {
 
 	
-	public void Write(Messages List);
+	public void Write(Messages list);
 	public String Read();
 }

@@ -40,8 +40,9 @@ public class ServerConnection implements Runnable
    {
       return outToClient;
    }
-Adapter db;
-Messages list;
+AdapterInterface  db2=new Adapter("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres", "postgres", "pass");
+Messages list=new Messages();
+
    @Override
    public void run()
    {
@@ -67,7 +68,7 @@ Messages list;
           
        }
        list.add(message);
-       db.Write();
+       db2.Write(list);
     
       }
          catch(Exception ex)
