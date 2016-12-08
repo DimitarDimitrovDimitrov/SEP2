@@ -11,6 +11,10 @@ import Model.Messages;
 
 public class ServerConnection implements Runnable
 {
+   
+   
+   AdapterInterface  db2=new Adapter("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres", "postgres", "pass");
+   Messages list=new Messages();
    private Socket ClientSocket;
    private MessageBroadcast mb;
    
@@ -40,8 +44,7 @@ public class ServerConnection implements Runnable
    {
       return outToClient;
    }
-AdapterInterface  db2=new Adapter("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres", "postgres", "pass");
-Messages list=new Messages();
+
 
    @Override
    public void run()
