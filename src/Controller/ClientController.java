@@ -28,13 +28,12 @@ public class ClientController implements Controller
    Socket clientSocket;
    private Messages list;
    private OnlineList onlineList;
-   
 
    public ClientController(Model model, View view)
    {
       this.model = model;
       this.view = view;
-onlineList=new OnlineList();
+      onlineList = new OnlineList();
       try
       {
 
@@ -70,12 +69,10 @@ onlineList=new OnlineList();
       {
 
          // create client socket, connect to server.
-         String timeStamp = new SimpleDateFormat("HH.mm.ss")
-               .format(new java.util.Date());
+         String timeStamp = new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
 
-         message = "[" + timeStamp + "] " + view.getUserNameField() + ": "
-               + view.getTextFieldInput();
-         Message m = new Message(message);
+         message = "[" + timeStamp + "] " + view.getUserNameField() + ": "+ view.getTextFieldInput();
+         Message m = new Message(message, true);
 
          outToServer.writeObject(m);
 
@@ -92,19 +89,19 @@ onlineList=new OnlineList();
    {
       if (e.getActionCommand().equals("Set"))
       {
-         
-          String onlinestring=new String();
-if(view.getUserNameField()!= null)
-{
-         onlineList.add(view.getUserNameField());
-}
 
-         for (int i = 0; i < onlineList.size(); i++)
+         try
          {
-            onlinestring +="\n" + onlineList.getUsers(i);
+            System.out.println("send to server " + view.getUserNameField());
+            outToServer.writeObject(new Message(view.getUserNameField(), false));
          }
-   System.out.println(onlinestring);
-         view.setText(onlinestring);
+         catch (IOException e1)
+         {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+         }
+
+        
 
       }
       if (e.getActionCommand().equals("Quit"))
@@ -113,6 +110,11 @@ if(view.getUserNameField()!= null)
          System.out.println("code");
       }
 
+   }
+
+   public void UpdateOnlineUsers(String string)
+   {
+      view.UpdateOnlineUsers(string);
    }
 
    @Override

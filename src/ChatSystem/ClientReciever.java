@@ -9,37 +9,53 @@ import View.ChatView;
 public class ClientReciever implements Runnable
 {
    private ObjectInputStream inFromServer;
-   private ChatView view;
-  
+   
+
    private ClientController controller;
-   public ClientReciever(ObjectInputStream inFromServer,ClientController clientController)
+
+   public ClientReciever(ObjectInputStream inFromServer,
+         ClientController clientController)
    {
       System.out.println("Created Client Reciever");
-      this.inFromServer=inFromServer;
-     this.controller=clientController;
+      this.inFromServer = inFromServer;
+      this.controller = clientController;
    }
+
    public void run()
    {
-      while(true)
+      while (true)
       {
          try
          {
-         Message message=(Message) inFromServer.readObject();
-         System.out.println("Reciever: "+message);
-         controller.UpdateMessages(message.getBody());
-         if(inFromServer==null)
-         {
-            System.out.println("inFromServer was null");
-            break;
-         }
-         }
-         catch(Exception ex)
-         {
+            Message message = (Message) inFromServer.readObject();
+            if (message.getIsMessage()==true)
+            {
+               System.out.println("Reciever: " + message);
+               controller.UpdateMessages(message.getBody());
+            }
+            else
+            {
+               Message user = (Message) inFromServer.readObject();
+               if (user.getIsMessage()==false)
+               {
+                  System.out.println("Reciever: " + user);
+                  controller.UpdateOnlineUsers(user.getBody());
+                  // is user name
+               }
+            }
+               if (inFromServer == null)
+               {
+                  System.out.println("inFromServer was null");
+                  break;
+               }
             
+         }
+         catch (Exception ex)
+         {
+
          }
       }
       // TODO Auto-generated method stub
-      
+
    }
- 
 }

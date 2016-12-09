@@ -6,7 +6,8 @@ public class Message implements Serializable
 {
    private int id;
    private String messageBody;
-
+   private boolean isMessage;
+   
    public Message(int id, String message)
    {
       this.id = id;
@@ -16,7 +17,7 @@ public class Message implements Serializable
          this.messageBody = "";
       }
    }
-   public Message(String message)
+   public Message(String message, boolean isMessage)
    {
       this(0, message);
       setId((int) (messageBody.hashCode() * Math.random()));
@@ -42,4 +43,7 @@ public class Message implements Serializable
       return "id=" + id + ", \"" + messageBody + "\"";
    }
 
+   public boolean getIsMessage() {
+      return isMessage;
+   }
 }

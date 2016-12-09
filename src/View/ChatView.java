@@ -143,10 +143,7 @@ ClientController controller;
       return userNameField.getText();
    }
 	
-	public void setText(String string)
-	{
-	   this.onlineusersArea.setText(string);
-	}
+	
 	
 
 	private void addComponentsToFrame()
@@ -196,6 +193,11 @@ ClientController controller;
 	   
 	   textAreaOutput.append("\n"+  ""+message);
 	   
+	   
+	}
+	public void UpdateOnlineUsers(String user)
+	{
+	   onlineusersArea.append("\n"+user);
 	}
 	
 	
