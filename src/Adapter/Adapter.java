@@ -57,19 +57,17 @@ public class Adapter implements AdapterInterface
    {
       try
       {
-         Connection c = null;
-         String data = null;
-         Statement stmt = null;
-         c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "pass");
-            c.setAutoCommit(false);
+         
         String sql = "SELECT * FROM \"Sep2\".list;";
-        stmt = c.createStatement();
-         ResultSet rs = stmt.executeQuery(sql);
-         while (rs.next())
+       
+         ArrayList<Object[]> query = db.query(sql, null);
+         for (int i=0;i<query.size();i++)
          {
-            data=rs.getString(1);
+            data=(String)query.get(i)[0];
             System.out.println(data );
          }
+         
+        
          
          
       }

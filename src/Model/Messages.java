@@ -3,9 +3,9 @@ package Model;
 
 
 import java.util.ArrayList;
-import java.util.Observable;
 
-import javafx.beans.InvalidationListener;
+
+
 
 public class Messages implements Model
 {

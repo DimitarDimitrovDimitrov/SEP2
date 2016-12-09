@@ -38,6 +38,7 @@ private JButton setName;
    private JTextField userNameField;
 	private JTextField textFieldInput;
 	private JTextArea textAreaOutput;
+	private JTextArea onlineusersArea;// online users
 	
 	private JButton buttonSend;
 	private JButton buttonQuit;
@@ -100,6 +101,10 @@ ClientController controller;
 		textAreaOutput = new JTextArea();
 		textAreaOutput.setEditable(false);
 		textAreaOutput.setBackground(Color.WHITE);
+	
+		
+		onlineusersArea=new JTextArea(5,8);// online users
+		
 		// adding setname button
 		setName=new JButton("Set");
 		
@@ -107,6 +112,7 @@ ClientController controller;
 		buttonQuit = new JButton("Quit");
 		
 		buttonQuit.addActionListener(this);
+		 setName.addActionListener(this);
 
 		
 		setSize(500,350); // set frame size
@@ -137,12 +143,22 @@ ClientController controller;
       return userNameField.getText();
    }
 	
+	public void setText(String string)
+	{
+	   this.onlineusersArea.setText(string);
+	}
+	
 
 	private void addComponentsToFrame()
 	{
 	   // adding the username to the gui
 	   JPanel top = new JPanel();
-	  
+	   //online users pannel
+	   JPanel right=new JPanel();
+	  right.add(onlineusersArea);
+	   
+	   
+	   
 	   top.add(new JLabel("Your name: "));
 	 
 	   top.add(userNameField);
@@ -162,12 +178,15 @@ ClientController controller;
 		panel1.add(panelButtons, BorderLayout.EAST);
 
 		JScrollPane scrollPane = new JScrollPane(textAreaOutput);
+		JScrollPane online =new JScrollPane(onlineusersArea);
 		
 
 		JPanel contentPane = new JPanel(new BorderLayout());
 		contentPane.add(top,BorderLayout.SOUTH);
 		contentPane.add(panel1, BorderLayout.NORTH);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
+		//adding online users to pane
+		contentPane.add(online,BorderLayout.EAST);
   
 		setContentPane(contentPane);
 	}

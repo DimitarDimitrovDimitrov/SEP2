@@ -16,4 +16,6 @@ public String getTextFieldInput();
 public String getUserNameField();
 
 public void setTextFieldInput();
+
+public void setText(String string);
 }
