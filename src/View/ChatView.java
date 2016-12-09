@@ -47,14 +47,14 @@ private JButton setName;
 Client c;
 
 
-
+// coooment
 ClientController controller;
 
 
 	public ChatView()
 	{
 	   
-		super("View");
+		super(" View ");
 
 		initialize();
 		addComponentsToFrame();
