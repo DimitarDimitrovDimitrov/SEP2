@@ -10,7 +10,7 @@ public class ClientReciever implements Runnable
 {
    private ObjectInputStream inFromServer;
    
-
+// coooment
    private ClientController controller;
 
    public ClientReciever(ObjectInputStream inFromServer,

@@ -24,7 +24,7 @@ public class ClientMain
          ClientController c=new ClientController(m, view);
 
       view.start(c); 
-      
+   // coooment
     //eeeee
    }
 }

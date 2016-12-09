@@ -4,7 +4,7 @@ import java.util.Observer;
 
 import Controller.Controller;
 import Controller.ClientController;
-
+//coooment
 public interface View 
 {
    public void start(ClientController controller);

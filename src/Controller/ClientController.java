@@ -29,6 +29,7 @@ public class ClientController implements Controller
    private Messages list;
    private OnlineList onlineList;
 //  I TOOK  A PILE OF SHIEEEEEETT
+// coooment
    public ClientController(Model model, View view)
    {
       this.model = model;
