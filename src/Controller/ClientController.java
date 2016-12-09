@@ -28,7 +28,7 @@ public class ClientController implements Controller
    Socket clientSocket;
    private Messages list;
    private OnlineList onlineList;
-
+//  I TOOK  A PILE OF SHIEEEEEETT
    public ClientController(Model model, View view)
    {
       this.model = model;
@@ -38,7 +38,7 @@ public class ClientController implements Controller
       {
 
          final int PORT = 6789;
-         final String HOST = "10.10.26.239";
+         final String HOST = "10.10.26.254";
          System.out.println("stuff");
          clientSocket = new Socket(HOST, PORT);
          // create input stream attached to the socket.
