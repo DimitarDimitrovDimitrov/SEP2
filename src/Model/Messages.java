@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import javafx.beans.InvalidationListener;
-import ChatSystem.Model;
 
 public class Messages implements Model
 {
@@ -74,12 +73,7 @@ public int size()
       notifyAll();
    }
 
-   @Override
-   public void update(Observable o, Object arg)
-   {
-      notifyAll();
-      
-   }
+   
 
   
 }

@@ -5,7 +5,7 @@ import java.util.Observer;
 import Controller.Controller;
 import Controller.ClientController;
 
-public interface View extends Observer
+public interface View 
 {
    public void start(ClientController controller);
  

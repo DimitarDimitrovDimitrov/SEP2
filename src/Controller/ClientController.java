@@ -10,11 +10,12 @@ import java.text.SimpleDateFormat;
 
 
 
+
 import ChatSystem.ClientReciever;
-import ChatSystem.Model;
 import Controller.Controller;
 import Model.Message;
 import Model.Messages;
+import Model.Model;
 import View.ChatView;
 import View.View;
 

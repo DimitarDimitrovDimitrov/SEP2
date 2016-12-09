@@ -7,9 +7,10 @@ import java.net.UnknownHostException;
 
 
 
-import Controller.ClientController;
 
+import Controller.ClientController;
 import Model.Messages;
+import Model.Model;
 import View.ChatView;
 import View.View;
 

@@ -193,12 +193,7 @@ ClientController controller;
 
 
 
-   @Override
-   public void update(Observable o, Object arg)
-   {
-      notify();
-      
-   }
+  
 
 
 

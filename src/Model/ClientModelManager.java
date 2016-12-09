@@ -1,13 +1,12 @@
-package ChatSystem;
+package Model;
 
 import java.util.Observable;
 
 
 
-import Model.Messages;
-import Model.Message;
 
-public class ClientModelManager extends Observable implements Model
+
+public class ClientModelManager  implements Model
 {
    private Messages list;
  
@@ -26,16 +25,11 @@ public class ClientModelManager extends Observable implements Model
    @Override
    public void notifyAboutMessage(Message message)
    {
-      super.setChanged();
-      super.notifyObservers(message);
-   }
-
-   @Override
-   public void update(Observable o, Object arg)
-   {
       // TODO Auto-generated method stub
       
    }
+
+   
 
 
 
