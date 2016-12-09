@@ -39,7 +39,7 @@ onlineList=new OnlineList();
       {
 
          final int PORT = 6789;
-         final String HOST = "localhost";
+         final String HOST = "10.52.230.109";
          System.out.println("stuff");
          clientSocket = new Socket(HOST, PORT);
          // create input stream attached to the socket.

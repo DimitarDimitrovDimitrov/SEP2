@@ -25,6 +25,6 @@ public class ClientMain
 
       view.start(c); 
       
-    
+    //eeeee
    }
 }
