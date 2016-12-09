@@ -62,6 +62,18 @@ public class ClientController implements Controller
 
    }
 
+   public void updateOnlineUsers(String users)
+   {
+      view.updateOnlineUsers(users);
+   }
+
+   public void UpdateMessages(String body)
+   {
+      view.UpdateMessages(body);
+
+   }
+   
+   
    public void sendMessageEnter(String message)
    {
 
@@ -112,11 +124,7 @@ public class ClientController implements Controller
 
    }
 
-   public void UpdateOnlineUsers(String string)
-   {
-      view.UpdateOnlineUsers(string);
-   }
-
+  
    @Override
    public void execute(String message)
    {
@@ -124,10 +132,6 @@ public class ClientController implements Controller
 
    }
 
-   public void UpdateMessages(String body)
-   {
-      view.UpdateMessages(body);
-
-   }
+  
 
 }

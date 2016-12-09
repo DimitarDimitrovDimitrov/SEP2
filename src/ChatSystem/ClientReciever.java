@@ -33,26 +33,25 @@ public class ClientReciever implements Runnable
                System.out.println("Reciever: " + message);
                controller.UpdateMessages(message.getBody());
             }
-            else
+           if (message.getIsMessage()==false )
             {
-               Message user = (Message) inFromServer.readObject();
-               if (user.getIsMessage()==false)
-               {
-                  System.out.println("Reciever: " + user);
-                  controller.UpdateOnlineUsers(user.getBody());
+                  System.out.println("Reciever: " +message);
+                  controller.updateOnlineUsers(message.getBody());
                   // is user name
                }
+              
             }
-               if (inFromServer == null)
-               {
-                  System.out.println("inFromServer was null");
-                  break;
-               }
+              
             
-         }
+         
          catch (Exception ex)
          {
 
+         }
+         if (inFromServer == null)
+         {
+            System.out.println("inFromServer was null");
+            break;
          }
       }
       // TODO Auto-generated method stub

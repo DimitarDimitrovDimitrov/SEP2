@@ -18,5 +18,5 @@ public String getUserNameField();
 public void setTextFieldInput();
 
 
-public void UpdateOnlineUsers(String string);
+public void updateOnlineUsers(String string);
 }

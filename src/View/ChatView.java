@@ -60,8 +60,7 @@ ClientController controller;
 		addComponentsToFrame();
 		
 		c=new Client();
-		ObjectOutputStream outToClient;
-	   ObjectInputStream inFromClient;
+		
 	   
 	   //send a message with the enter 
 	   textFieldInput.addActionListener(new ActionListener()
@@ -104,7 +103,7 @@ ClientController controller;
 	
 		
 		onlineusersArea=new JTextArea(5,8);// online users
-		
+		onlineusersArea.setEditable(false);
 		// adding setname button
 		setName=new JButton("Set");
 		
@@ -151,8 +150,7 @@ ClientController controller;
 	   // adding the username to the gui
 	   JPanel top = new JPanel();
 	   //online users pannel
-	   JPanel right=new JPanel();
-	  right.add(onlineusersArea);
+	  
 	   
 	   
 	   
@@ -192,12 +190,10 @@ ClientController controller;
 	{
 	   
 	   textAreaOutput.append("\n"+  ""+message);
-	   
-	   
-	}
-	public void UpdateOnlineUsers(String user)
+    }
+	public void updateOnlineUsers(String user)
 	{
-	   onlineusersArea.append("\n"+user);
+	   onlineusersArea.append("\n"+ ""+user);
 	}
 	
 	
