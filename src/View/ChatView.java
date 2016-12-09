@@ -109,7 +109,7 @@ ClientController controller;
 		buttonQuit.addActionListener(this);
 
 		
-		setSize(350, 150); // set frame size
+		setSize(500,350); // set frame size
 		setLocationRelativeTo(null); // center of the screen
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		textAreaOutput.setBackground(Color.LIGHT_GRAY);
