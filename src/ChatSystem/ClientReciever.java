@@ -20,7 +20,17 @@ public class ClientReciever implements Runnable
       this.inFromServer = inFromServer;
       this.controller = clientController;
    }
-
+   /**
+    * sends the message to client or makes the username visible                         (1)
+    * <p>
+    * if the message is a message by the get is message method set in the client controller 
+    * <p>
+    * And even more explanations to follow in consecutive
+    * paragraphs separated by HTML paragraph breaks.
+    *
+    * @param  variable Description text text text.          (3)
+    * @return Description text text text.
+    */
    public void run()
    {
       while (true)

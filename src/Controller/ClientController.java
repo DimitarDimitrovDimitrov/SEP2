@@ -18,7 +18,14 @@ import Model.Model;
 import Model.OnlineList;
 import View.ChatView;
 import View.View;
-
+/**
+ * @author Oleg,Dimitar,Todor;
+ * 
+ */
+/**
+ * this is the client controller class it calls the methods from the view class
+ * the class is neccessary for the implementation of the MVC pattern as this is the the controller 
+ */
 public class ClientController implements Controller
 {
    private Model model;
@@ -62,18 +69,47 @@ public class ClientController implements Controller
       }
 
    }
-
+   /**
+    * updates the online users.                           (1)
+    * <p>
+    *  calls the view object to update the onlineusersArea by adding a String with the 
+    *  new Client that connected.
+    * <p>
+    * 
+    * @param  String users. 
+    * 
+    */
    public void updateOnlineUsers(String users)
    {
       view.updateOnlineUsers(users);
    }
-
+   /**
+    * updates the messages sent by the clients.                 
+    * <p>
+    * calls the view object to update the TextOutputArea by adding a String with the message.
+    *  
+    * <p>
+    *  
+    *
+    * @param  String body.           
+    * 
+    */
    public void UpdateMessages(String body)
    {
       view.UpdateMessages(body);
 
    }
-   
+   /**
+    * sends messages                          
+    * <p>
+    * when the enter button is pressed calls the outToServerObject to send a String message with a timestamp and username to the server
+    * and then resets the text area.
+    * <p>
+    *  
+    *
+    * @param  String message.          
+    *  
+    */
    
    public void sendMessageEnter(String message)
    {
@@ -97,7 +133,17 @@ public class ClientController implements Controller
 
       }
    }
-
+   /**
+    * performs the functions of the other buttons                  
+    * <p>
+    * If the button is send it sends a message containing the username set by the client and sends it to the server.
+    * If the button is quit it closes the program.
+    *  
+    * <p>
+    * 
+    * @param  ActionEvent e.           
+    * 
+    */
    public void actionPerformed(ActionEvent e)
    {
       if (e.getActionCommand().equals("Set"))

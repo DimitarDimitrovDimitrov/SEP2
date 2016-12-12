@@ -13,7 +13,12 @@ import Model.Messages;
 import Model.Model;
 import View.ChatView;
 import View.View;
-
+/**
+ @author Oleg,Dimitar,Todor
+ */
+/**
+ * this is the clientMain class which starts the program .
+ */
 public class ClientMain
 {
    public static void main(String args[]) throws IOException, 
@@ -24,7 +29,6 @@ public class ClientMain
          ClientController c=new ClientController(m, view);
 
       view.start(c); 
-   // coooment
-    //eeeee
+  
    }
 }
