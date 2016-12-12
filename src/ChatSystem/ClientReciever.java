@@ -9,8 +9,8 @@ import View.ChatView;
 public class ClientReciever implements Runnable
 {
    private ObjectInputStream inFromServer;
-   
-// coooment
+
+   // coooment
    private ClientController controller;
 
    public ClientReciever(ObjectInputStream inFromServer,
@@ -20,16 +20,17 @@ public class ClientReciever implements Runnable
       this.inFromServer = inFromServer;
       this.controller = clientController;
    }
+
    /**
-    * sends the message to client or makes the username visible                         (1)
+    * sends the message to client or makes the username visible  
     * <p>
-    * if the message is a message by the get is message method set in the client controller 
+    * if the message is a message by the get is message method set in the client
+    * controller then it calls the UpdateMessages in the client controller
+    * which shows the message in the textOutputArea.
+    * if the message is not a message by the getIsMessage method then it shows the username in the usernameArea.
     * <p>
-    * And even more explanations to follow in consecutive
-    * paragraphs separated by HTML paragraph breaks.
-    *
-    * @param  variable Description text text text.          (3)
-    * @return Description text text text.
+    * 
+    *  
     */
    public void run()
    {
@@ -38,22 +39,20 @@ public class ClientReciever implements Runnable
          try
          {
             Message message = (Message) inFromServer.readObject();
-            if (message.getIsMessage()==true)
+            if (message.getIsMessage() == true)
             {
                System.out.println("Reciever: " + message);
                controller.UpdateMessages(message.getBody());
             }
-           if (message.getIsMessage()==false )
+            if (message.getIsMessage() == false)
             {
-                  System.out.println("Reciever: " +message);
-                  controller.updateOnlineUsers(message.getBody());
-                  // is user name
-               }
-              
+               System.out.println("Reciever: " + message);
+               controller.updateOnlineUsers(message.getBody());
+               // is user name
             }
-              
-            
-         
+
+         }
+
          catch (Exception ex)
          {
 
