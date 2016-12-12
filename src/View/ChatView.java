@@ -25,7 +25,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
-import ChatSystem.Client;
+
 import ChatSystem.ClientReciever;
 import Controller.ClientController;
 import Controller.Controller;
@@ -44,7 +44,7 @@ private JButton setName;
 	private JButton buttonQuit;
 	
 	
-Client c;
+
 
 
 // coooment
@@ -59,7 +59,6 @@ ClientController controller;
 		initialize();
 		addComponentsToFrame();
 		
-		c=new Client();
 		
 	   
 	   //send a message with the enter 
