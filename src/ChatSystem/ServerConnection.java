@@ -40,6 +40,15 @@ public class ServerConnection implements Runnable
 
       
    }
+   /**
+    * returns a message to the client.                   (1)
+    * <p>
+    *  calls the outToClient variable when the method is called .
+    * <p>
+    * 
+    * @return conns.size();
+    * 
+    */
    public ObjectOutputStream  returnMessage()
    {
       return outToClient;
@@ -47,6 +56,16 @@ public class ServerConnection implements Runnable
 
 
    @Override
+   /**
+    *This prints the messages sent from the client     
+    * <p>
+    *  This prints the messages sent from the client.
+    *  and then sends a reply to all the clients containing that message 
+    * <p>
+    * 
+    * 
+    * 
+    */
    public void run()
    {
       while(true)

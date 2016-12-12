@@ -4,7 +4,12 @@ import java.util.Observer;
 
 import Controller.Controller;
 import Controller.ClientController;
-//coooment
+/**
+ *@author Oleg,Dimitar,Todor.
+ *this is the view interface.
+ *it is implemented by the view class.
+ * 
+ */
 public interface View 
 {
    public void start(ClientController controller);

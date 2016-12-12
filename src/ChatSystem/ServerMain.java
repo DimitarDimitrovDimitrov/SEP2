@@ -5,7 +5,12 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
-
+/**
+ *@author Oleg,Dimitar,Todor.         
+ * This is the main class for starting the server.
+ * the program accepts the cients who are connecting to the server and then establishes a 
+ * connection between them .
+ */
 public class ServerMain
 {
    public static void main(String args[]) throws IOException,

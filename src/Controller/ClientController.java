@@ -15,7 +15,7 @@ import Controller.Controller;
 import Model.Message;
 import Model.Messages;
 import Model.Model;
-import Model.OnlineList;
+
 import View.ChatView;
 import View.View;
 /**
@@ -34,14 +34,14 @@ public class ClientController implements Controller
    ObjectInputStream inFromServer;
    Socket clientSocket;
    private Messages list;
-   private OnlineList onlineList;
+
 //  I TOOK  A PILE OF SHIEEEEEETT
 // coooment
    public ClientController(Model model, View view)
    {
       this.model = model;
       this.view = view;
-      onlineList = new OnlineList();
+    
       try
       {
 
