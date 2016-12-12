@@ -14,8 +14,7 @@ public class ServerMain
       boolean isConnected = true;
       final int PORT = 6789;
       
-   // coooment
-    // comment 
+ 
       System.out.println("Starting Server...");
 
       // create welcoming socket at port 6789

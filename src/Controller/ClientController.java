@@ -39,7 +39,7 @@ public class ClientController implements Controller
       {
 
          final int PORT = 6789;
-         final String HOST = "10.10.26.254";
+         final String HOST = "localhost";
          System.out.println("stuff");
          clientSocket = new Socket(HOST, PORT);
          // create input stream attached to the socket.
