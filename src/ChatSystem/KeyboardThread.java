@@ -16,7 +16,7 @@ public class KeyboardThread implements Runnable
    Scanner keyboard = new Scanner(System.in);
    
    AdapterInterface ai = new Adapter("org.postgresql.Driver","jdbc:postgresql://localhost:5432/postgres","postgres","pass");
-   //comment
+   
    
      Messages list=new Messages();
    @Override

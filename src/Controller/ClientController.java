@@ -24,7 +24,7 @@ import View.View;
  */
 /**
  * this is the client controller class it calls the methods from the view class
- * the class is neccessary for the implementation of the MVC pattern as this is the the controller 
+ * the class is necessary for the implementation of the MVC pattern as this is  the controller 
  */
 public class ClientController implements Controller
 {

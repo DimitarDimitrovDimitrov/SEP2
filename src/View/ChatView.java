@@ -26,6 +26,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b4c1ecd22154a6169987a840ebb38425d6697cfd
 import ChatSystem.ClientReciever;
 import Controller.ClientController;
 import Controller.Controller;
@@ -44,6 +48,7 @@ public class ChatView extends JFrame implements ActionListener, View
 {
    private JButton setName;
    private JTextField userNameField;
+<<<<<<< HEAD
    private JTextField textFieldInput;
    private JTextArea textAreaOutput;
    private JTextArea onlineusersArea;// online users
@@ -69,6 +74,35 @@ public class ChatView extends JFrame implements ActionListener, View
        */
       // send a message with the enter
       textFieldInput.addActionListener(new ActionListener()
+=======
+	private JTextField textFieldInput;
+	private JTextArea textAreaOutput;
+	private JTextArea onlineusersArea;// online users
+	
+	private JButton buttonSend;
+	private JButton buttonQuit;
+	
+	
+
+
+
+// coooment
+ClientController controller;
+
+
+	public ChatView()
+	{
+	   
+		super(" View ");
+
+		initialize();
+		addComponentsToFrame();
+		
+		
+	   
+	   //send a message with the enter 
+	   textFieldInput.addActionListener(new ActionListener()
+>>>>>>> b4c1ecd22154a6169987a840ebb38425d6697cfd
       {
          public void actionPerformed(ActionEvent event)
          {

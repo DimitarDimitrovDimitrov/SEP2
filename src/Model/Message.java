@@ -2,7 +2,15 @@ package Model;
 import java.io.Serializable;
 
 public class Message implements Serializable
-{
+{/**
+	 * @author Oleg,Dimitar,Todor;
+	 * 
+	 */
+	/**
+	 * this is the Message  class. It is a class  from which the user's messages are called  and later transfered
+	 * the class is necessary for the implementation of the whole system as it creates a message. 
+	 */
+	
    private int id;
    private String messageBody;
    private boolean isMessage;
@@ -26,11 +34,22 @@ public class Message implements Serializable
       setId((int) (messageBody.hashCode() * Math.random()));
    }
 
+   /**
+
+    */
+   /**
+    * this is the get ID  Method. It is  method which prints out an id unique for every message.
+     
+    */
+   
+   
    public int getId()
    {
       return id;
    }
 
+   
+   
    public void setId(int id)
    {
       this.id = id;
@@ -46,6 +65,11 @@ public class Message implements Serializable
       return "id=" + id + ", \"" + messageBody + "\"";
    }
 
+   /**
+    
+    * this is the getIsMessage method. It is  method which is used to identify messages from user names so they can be send accordingly.
+    * the method is necessary for the implementation of the system because it s used to distinguish user names from messages. 
+    */
    public boolean getIsMessage()
    {
       return isMessage;
