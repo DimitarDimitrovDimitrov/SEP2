@@ -26,10 +26,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b4c1ecd22154a6169987a840ebb38425d6697cfd
 import ChatSystem.ClientReciever;
 import Controller.ClientController;
 import Controller.Controller;
@@ -48,7 +44,6 @@ public class ChatView extends JFrame implements ActionListener, View
 {
    private JButton setName;
    private JTextField userNameField;
-<<<<<<< HEAD
    private JTextField textFieldInput;
    private JTextArea textAreaOutput;
    private JTextArea onlineusersArea;// online users
@@ -68,41 +63,12 @@ public class ChatView extends JFrame implements ActionListener, View
 
       /**
        * this method sends a message when the enter button is pressed .
-       * <p>
-       * this method sends a message when the enter button is pressed.
-       * <p>
+       * 
+       * 
+       * 
        */
       // send a message with the enter
       textFieldInput.addActionListener(new ActionListener()
-=======
-	private JTextField textFieldInput;
-	private JTextArea textAreaOutput;
-	private JTextArea onlineusersArea;// online users
-	
-	private JButton buttonSend;
-	private JButton buttonQuit;
-	
-	
-
-
-
-// coooment
-ClientController controller;
-
-
-	public ChatView()
-	{
-	   
-		super(" View ");
-
-		initialize();
-		addComponentsToFrame();
-		
-		
-	   
-	   //send a message with the enter 
-	   textFieldInput.addActionListener(new ActionListener()
->>>>>>> b4c1ecd22154a6169987a840ebb38425d6697cfd
       {
          public void actionPerformed(ActionEvent event)
          {
@@ -124,9 +90,9 @@ ClientController controller;
 
    /**
     * initializes all the fields and buttons .
-    * <p>
-    * initializes all the fields and buttons.
-    * <p>
+    * 
+    * 
+    * 
     */
    private void initialize()
    {
@@ -197,7 +163,7 @@ ClientController controller;
     * adds all the components to the frame.
     * <p>
     * adds all the components to the JPanel.
-    * <p>
+    * 
     * 
     * @return conns.size();
     */

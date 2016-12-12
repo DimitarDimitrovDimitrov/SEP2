@@ -18,8 +18,7 @@ public class Adapter implements AdapterInterface
 	 * 
 	 */
 	/**
-	 * this is the Model  class. It is an interface  from which the class Message call  methods
-	 * the class is necessary for the implementation of the MVC pattern as this is  the Model 
+	 * this is the Adapter  class.this class accesses the methods from the My database it is used in the Adapter pattern
 	 */
 	
    private MyDatabase db;
@@ -52,7 +51,7 @@ public class Adapter implements AdapterInterface
     * 
     */
    /**
-    * this is the Write  Method. It is  method which uses  the a my database  an update method from my database class
+    * this is the Write  Method. It is a method which uses  the a my database  an update method from my database class
     * the class is necessary for the implementation of the adapter as it writes messages to the database. 
     */
    

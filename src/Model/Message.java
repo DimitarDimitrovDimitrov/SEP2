@@ -39,7 +39,7 @@ public class Message implements Serializable
     */
    /**
     * this is the get ID  Method. It is  method which prints out an id unique for every message.
-     
+     @return id
     */
    
    
@@ -69,6 +69,7 @@ public class Message implements Serializable
     
     * this is the getIsMessage method. It is  method which is used to identify messages from user names so they can be send accordingly.
     * the method is necessary for the implementation of the system because it s used to distinguish user names from messages. 
+    * @return isMessage
     */
    public boolean getIsMessage()
    {

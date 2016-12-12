@@ -5,7 +5,13 @@ import java.io.ObjectInputStream;
 import Controller.ClientController;
 import Model.Message;
 import View.ChatView;
-
+/**
+ *@author Oleg,Dimitar,Todor
+ *this is the class that   recieves the messages sent from the server and distributes them into messages or user names
+ *depending if the has  is  true or false when it is sent to the server 
+ *
+ * 
+ */
 public class ClientReciever implements Runnable
 {
    private ObjectInputStream inFromServer;
@@ -28,7 +34,7 @@ public class ClientReciever implements Runnable
     * controller then it calls the UpdateMessages in the client controller
     * which shows the message in the textOutputArea.
     * if the message is not a message by the getIsMessage method then it shows the username in the usernameArea.
-    * <p>
+    * 
     * 
     *  
     */

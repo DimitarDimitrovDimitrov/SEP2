@@ -8,7 +8,11 @@ import Adapter.Adapter;
 import Adapter.AdapterInterface;
 import Model.Message;
 import Model.Messages;
-
+/**
+ *@author Oleg,Dimitar,Todor
+ *This class recieves messages from the clients 
+ *It also sends them to the clients.
+ */
 public class ServerConnection implements Runnable
 {
    
@@ -17,7 +21,7 @@ public class ServerConnection implements Runnable
    Messages list=new Messages();
    private Socket ClientSocket;
    private MessageBroadcast mb;
-// coooment
+
    
    ObjectOutputStream outToClient;
    ObjectInputStream inFromClient;
@@ -41,7 +45,7 @@ public class ServerConnection implements Runnable
       
    }
    /**
-    * returns a message to the client.                   (1)
+    * returns a message to the client.                    
     * <p>
     *  calls the outToClient variable when the method is called .
     * <p>
@@ -61,7 +65,7 @@ public class ServerConnection implements Runnable
     * <p>
     *  This prints the messages sent from the client.
     *  and then sends a reply to all the clients containing that message 
-    * <p>
+    *  
     * 
     * 
     * 

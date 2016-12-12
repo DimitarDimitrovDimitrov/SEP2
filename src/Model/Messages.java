@@ -28,7 +28,8 @@ public class Messages implements Model
     
    /**
     * this is the getMessage  Method. It is a  method which collects messages from the arraylist.
-    
+      @param  int index
+      @return messages.get(index)
     */
    
    public synchronized Message getMessage(int index)
@@ -41,6 +42,7 @@ public class Messages implements Model
     */
    /**
     This is the count Method. It is used to return the size of the messages arraylist. 
+    @return messages.size().
     */
    public synchronized int count()
    {
@@ -52,6 +54,7 @@ public class Messages implements Model
   
    /**
     * This is the add method.It is a method which is used to add methods to the arraylist.
+    * @param Message message
 
     */
    public synchronized void add(Message message)
@@ -61,6 +64,7 @@ public class Messages implements Model
    
    /**
     * This is the Message[] get all method.It is used to create an array of type Message and store messages inside so they can all be printed out.
+    * @return m
     */
    public synchronized Message[] getAll()
    {
@@ -75,7 +79,8 @@ public class Messages implements Model
    /**
 
     * 
-  This is the Message[] remove All method.It is used to create an array of type message and delete all messages stored inside the array. 
+  This is the Message[] remove All method.It is used to create an array of type message and delete all messages stored inside the array.
+  @return m
     */
    public synchronized Message[] removeAll()
    {
@@ -99,6 +104,7 @@ public class Messages implements Model
    }
    /**
     * This is the size method.It is used to return the size of the messages arraylist.s
+    * @return messages.size()
     
     */
    

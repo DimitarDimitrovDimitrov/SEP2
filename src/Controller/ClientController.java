@@ -88,7 +88,7 @@ public class ClientController implements Controller
     * <p>
     * calls the view object to update the TextOutputArea by adding a String with the message.
     *  
-    * <p>
+    *  
     *  
     *
     * @param  String body.           
@@ -104,7 +104,7 @@ public class ClientController implements Controller
     * <p>
     * when the enter button is pressed calls the outToServerObject to send a String message with a timestamp and username to the server
     * and then resets the text area.
-    * <p>
+    *  
     *  
     *
     * @param  String message.          
@@ -139,7 +139,7 @@ public class ClientController implements Controller
     * If the button is send it sends a message containing the username set by the client and sends it to the server.
     * If the button is quit it closes the program.
     *  
-    * <p>
+    *  
     * 
     * @param  ActionEvent e.           
     * 

@@ -28,16 +28,16 @@ public class MessageBroadcast
     * @param  ServerConnection conn. 
     * 
     */
-
+   
    public void addConnection(ServerConnection conn)
    {
       conns.add(conn);
    }
    /**
     * returns the number of clients that in the conns  .                   (1)
-    * <p>
-    *  returns the number of clients stored in   conns .
-    * <p>
+    * 
+    *  
+    * 
     * 
     * @return conns.size();
     * 
@@ -47,8 +47,8 @@ public class MessageBroadcast
       return conns.size();
    }
    /**
-    * returns the connection stored at index i  .                   
-    * <p>
+    *   
+    * 
     *  returns the number of clients stored in   conns .
     * <p>
     * @param int i.
