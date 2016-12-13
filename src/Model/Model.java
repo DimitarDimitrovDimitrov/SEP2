@@ -1,7 +1,7 @@
 package Model;
 
 
-import java.util.Observer;
+
 
 /**
  * @author Oleg,Dimitar,Todor;
@@ -13,7 +13,7 @@ import java.util.Observer;
  */
 
 
-public interface Model // we made it implement  observable 
+public interface Model  
 {
    public void add(Message message);
  

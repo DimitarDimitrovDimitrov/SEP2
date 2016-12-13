@@ -48,9 +48,9 @@ public class KeyboardThread implements Runnable
          }
          catch (Exception ex)
          {
-
+            ex.printStackTrace();
          }
-      }// coooment
+      }
 
    }
 }

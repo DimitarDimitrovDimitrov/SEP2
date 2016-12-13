@@ -1,4 +1,5 @@
-/View/
-/Model/
-/ChatSystem/
 /Adapter/
+/ChatSystem/
+/Controller/
+/Model/
+/View/

@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import ChatSystem.ClientReciever;
-import Controller.Controller;
+
 import Model.Message;
 import Model.Messages;
 import Model.Model;
@@ -26,17 +26,17 @@ import View.View;
  * this is the client controller class it calls the methods from the view class
  * the class is necessary for the implementation of the MVC pattern as this is  the controller 
  */
-public class ClientController implements Controller
+public class ClientController
 {
    private Model model;
    private View view;
    ObjectOutputStream outToServer;
    ObjectInputStream inFromServer;
    Socket clientSocket;
-   private Messages list;
+  
 
-//  I TOOK  A PILE OF SHIEEEEEETT
-// coooment
+
+
    public ClientController(Model model, View view)
    {
       this.model = model;
@@ -146,6 +146,31 @@ public class ClientController implements Controller
     */
    public void actionPerformed(ActionEvent e)
    {
+      
+      if(e.getActionCommand().equals("Send"))
+      {
+         String message;
+         String timeStamp = new SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
+
+         message = "[" + timeStamp + "] " + view.getUserNameField() + ": "+ view.getTextFieldInput();
+         Message m = new Message(message, true);
+
+         try
+         {
+            outToServer.writeObject(m);
+         }
+         catch (IOException e1)
+         {
+            
+            e1.printStackTrace();
+         }
+
+         view.setTextFieldInput();
+         
+         
+      }
+      
+      
       if (e.getActionCommand().equals("Set"))
       {
 
@@ -156,7 +181,7 @@ public class ClientController implements Controller
          }
          catch (IOException e1)
          {
-            // TODO Auto-generated catch block
+          
             e1.printStackTrace();
          }
 
@@ -172,13 +197,7 @@ public class ClientController implements Controller
    }
 
   
-   @Override
-   public void execute(String message)
-   {
-      // TODO Auto-generated method stub
-
-   }
-
+ 
   
 
 }

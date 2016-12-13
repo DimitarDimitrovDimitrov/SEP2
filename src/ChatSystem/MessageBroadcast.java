@@ -1,13 +1,13 @@
 package ChatSystem;
 
-import java.awt.List;
+
 import java.util.ArrayList;
 
 /**
  * @author Oleg,Dimitar,Todor.
  * <p>
  *  This is the MessageBroadcast class it provides a list used to store or retrieve connections and show the number of connected clients.
- * <p>
+ * 
  * 
  *  
  * 

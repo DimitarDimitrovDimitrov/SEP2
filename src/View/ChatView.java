@@ -2,20 +2,9 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.KeyEventDispatcher;
-import java.awt.KeyboardFocusManager;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-import java.text.SimpleDateFormat;
-import java.util.Observable;
-import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,14 +13,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.KeyStroke;
 
-import ChatSystem.ClientReciever;
+
+
 import Controller.ClientController;
-import Controller.Controller;
-import Model.Message;
 
-import java.util.GregorianCalendar;
+
+
+
 
 /**
  *@author Oleg,Dimitar,Todor
@@ -113,7 +102,7 @@ public class ChatView extends JFrame implements ActionListener, View
 
       buttonQuit.addActionListener(this);
       setName.addActionListener(this);
-
+      buttonSend.addActionListener(this);
       setSize(500, 350); // set frame size
       setLocationRelativeTo(null); // center of the screen
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

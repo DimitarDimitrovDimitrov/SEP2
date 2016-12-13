@@ -1,8 +1,7 @@
 package View;
 
-import java.util.Observer;
 
-import Controller.Controller;
+
 import Controller.ClientController;
 /**
  *@author Oleg,Dimitar,Todor.

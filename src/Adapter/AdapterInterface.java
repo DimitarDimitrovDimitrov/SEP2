@@ -1,7 +1,7 @@
 package Adapter;
 
 import Model.Messages;
-//coooment
+
 public interface AdapterInterface {
 
 	

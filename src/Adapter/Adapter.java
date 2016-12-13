@@ -1,11 +1,8 @@
 package Adapter;
 
-import java.io.FileNotFoundException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 
 import Model.Messages;
@@ -106,7 +103,7 @@ public class Adapter implements AdapterInterface
       }
       catch (SQLException e)
       {
-         // TODO Auto-generated catch block
+      
         e.printStackTrace();
       }
      
